@@ -1,0 +1,249 @@
+\documentclass[12pt]{article}
+\usepackage[top=0.0cm, left=1.5cm, bottom=1.2cm, right=2.0cm, a4paper, includehead, headsep=5mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{xskak}
+\usepackage{graphicx}
+\usepackage{ amssymb }
+
+%программа для редактирования позиций (очень удобная)
+%http://alain.blaisot.free.fr/DiagTransfer/English/home.htm
+%Страница для редактирования позиций на доске
+%http://chess.com/analysis-board-editor
+
+% Коды фигур
+% K - король 
+% Q - ферзь
+% R - ладья
+% B - слон
+% N - конь
+% P - пешка
+
+\newcounter{boardcount}
+\stepcounter{boardcount}
+
+\newcommand{\board}[1]
+{
+    \begin{minipage}[t][8.3cm][t]{9cm}
+      \fenboard{#1 w - - 0 1}
+      \makebox[6ex]{\raisebox{35ex}{\Large\textbf{\theboardcount\LARGE{$\blacktriangleright$}}}} \hskip 0.2cm
+      \showboard
+      \par
+      \hskip 3.5cm Ход белых
+    \end{minipage}
+    \stepcounter{boardcount}
+}
+
+\newcommand{\pagetitle}{{\Large\bf{Мат в 1 ход}}\vskip 0.6cm}
+
+\newcommand{\page}[6]
+           {
+    \pagetitle
+    \begin{tabular}{cc}
+    \board{#1}  &
+    \board{#2} \\
+    \board{#3}  &
+    \board{#4} \\
+    \board{#5}  &
+    \board{#6} \\
+    \end{tabular}
+    \newpage
+}
+
+\setupboard{22pt}{12pt}
+
+\begin{document}
+\begin{center}
+\Large\bf{
+ПЕРВЫЙ КЛАСС
+
+(Дети 6-летнего возраста)
+}
+\end{center}
+\begin{center}
+  %5
+  \page{4k3/8/4K3/8/8/8/R7/8}
+       {4k3/7R/8/8/8/3K4/8/R7}
+       {5k2/p7/5K2/8/8/8/Q7/8}
+       {7k/8/6K1/8/8/8/B6B/8}
+       {7k/5ppp/8/8/8/6P1/5PK1/R7}
+       {4qrk1/5ppp/8/8/8/6P1/1Q4K1/R7}
+  %6     
+  \page{7k/8/6KN/B7/8/8/8/8}
+       {4k3/7R/3KN3/8/8/8/8/q7}
+       {R7/8/8/8/8/5K2/7p/6k1}
+       {5qk1/Q7/6K1/8/8/8/8/8}
+       {8/kppN4/8/8/8/1P6/1KP5/2R5}
+       {5rk1/5p2/5Bp1/8/8/8/6K1/7R}       
+  %7
+  \page{2r5/2p5/kpB5/8/2R5/1K6/8/8}
+       {k1b5/p2R4/1pN5/8/8/1K6/8/8}
+       {kr6/7Q/1P6/8/2K5/8/8/8}
+       {Q7/8/5pkp/8/8/4rqPK/8/8}
+       {8/7K/Q7/4q3/8/7p/7p/7k}
+       {krr5/pp6/8/8/N7/1K6/8/R7}       
+  %8
+  \page{8/8/8/8/p7/kn6/8/NK6}
+       {4k3/1N1nn3/4N2K/8/8/8/8/8}
+       {Krk5/p7/pP6/8/8/8/8/8}
+       {5b1r/6kp/8/6KP/8/8/B7/8}
+       {kb6/8/1K6/8/8/7B/8/8}
+       {6bk/p6p/5b2/8/8/1P6/P1P4P/B6K}
+  %9
+  \page{8/1K6/7B/2k5/2Pp4/3P4/8/q7}
+       {3R4/5pkp/5Np1/6P1/8/8/6K1/8}
+       {8/8/8/8/8/8/5K1p/5N1k}
+       {5rk1/5N1p/6p1/8/8/8/6K1/B7}
+       {7Q/8/8/8/4q3/3k4/1K2p3/8}
+       {5n1k/6Rp/6p1/4B3/8/8/6K1/8}       
+  %10
+  \page{8/8/8/2N5/8/8/4p3/2K1kn2}
+       {3R4/1p2p1kp/2r1B3/1q2n1Pp/4P3/8/PPP5/2K5}
+       {8/5Np1/p7/4qp2/2K1kn2/4b3/8/8}
+       {8/1p1R3p/p3pkp1/Q7/2r1q2P/2P5/P4PP1/6K1}
+       {8/8/4bp2/4p3/4P3/k4P2/1pR5/1K1N4}
+       {rn2r2k/p4pR1/2pb1p2/1p5P/3P3P/1KPBB3/1P1QNP2/q2R4}       
+  %11
+  \page{r4Br1/p1q2p1k/1p1R4/3pP2p/8/2p5/P1P1NPPP/6K1}
+       {1bk1r2r/p2n3p/2p2n2/B1P3p1/3P1pbq/2NB4/PP4PP/R2R1NK1}
+       {8/np1K4/1k6/p7/8/8/1N6/5B2}
+       {8/7R/2r6/8/P3n3/5n2/4q1PP/R6K}
+       {3r1r1k/pb2npp1/1p2p1p1/3k4/8/1PQ3P1/PB2PP2/2R2RK1}
+       {1r1q1k2/R4p1B/3Pb2p/4Q1p1/1p6/2p3PP/1P3P2/6K1}       
+
+  %12
+  \page{6q1/5p1p/1r4N1/8/8/1P2P2q/1Q3P1P/6K1}
+       {1kbn4/2r5/1N6/8/8/1R6/R7/3K4}
+       {r2qkb1r/1bp2ppp/p4n2/3p4/8/5p2/PPP1BPPP/RNBQR1K1}
+       {r2qbb1r/1pp1k1p1/p1n4p/8/3Pp3/1B5Q/PPP2PPP/RNB3K1}
+       {rn4r1/1p2np1k/2p1pPp1/4R3/8/1P5P/Pq4P1/1B4RK}
+       {rn1q1bnr/ppp1kBp1/3p3p/4N3/4P3/2N5/PPPP1PPP/R1BbK2R}       
+  %13       
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+\end{center}
+\end{document}
+
+
+
+
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+
+  \page{}
+       {}
+       {}
+       {}
+       {}
+       {}       
+       
+
