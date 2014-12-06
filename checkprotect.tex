@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage[top=0.0cm, left=1.3cm, bottom=1.2cm, right=1.5cm, a4paper, includehead, headsep=5mm]{geometry}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{skak}
+\usepackage{amssymb}
+\usepackage{xstring}
+
+%программа для редактирования позиций (очень удобная)
+%http://alain.blaisot.free.fr/DiagTransfer/English/home.htm
+%Страница для редактирования позиций на доске
+%http://chess.com/analysis-board-editor
+
+% Коды фигур
+% K - король 
+% Q - ферзь
+% R - ладья
+% B - слон
+% N - конь
+% P - пешка
+
+\newcounter{boardcount}
+\stepcounter{boardcount}
+
+\newcommand{\board}[1]
+           {
+             \StrCut{#1}{ }{\position}{\turn}
+             \def\black{b}
+             \begin{minipage}[t][8.3cm][t]{8.0cm}
+               \fenboard{#1 - - 0 1}
+               \makebox[6ex]{\raisebox{35ex}{\Large\textbf{\theboardcount\LARGE{$\blacktriangleright$}}}} \hskip 0.2cm
+               \showboard
+               \par
+               \hskip 3.5cm
+               \ifx \black\turn Ход черных \else  Ход белых \fi
+             \end{minipage}
+             \stepcounter{boardcount}
+           }
+
+\newcommand{\pagetitle}{{\Large\bf{Защита от шаха}}\vskip 0.6cm}
+
+\newcommand{\page}[6]
+           {
+    \pagetitle
+    \begin{tabular}{cc}
+    \board{#1}  &
+    \board{#2} \\
+    \board{#3}  &
+    \board{#4} \\
+    \board{#5}  &
+    \board{#6} \\
+    \end{tabular}
+    \newpage
+}
+
+\setupboard{22pt}{12pt}
+
+\begin{document}
+\begin{center}
+  %1 - номер первой доски на листе
+  \page{4k3/8/4K3/8/8/8/R7/8 w}
+       {4k3/7R/8/8/8/3K4/8/R7 w}
+       {5k2/p7/5K2/8/8/8/Q7/8 w}
+       {7k/8/6K1/8/8/8/B6B/8 w}
+       {7k/5ppp/8/8/8/6P1/5PK1/R7 w}
+       {4qrk1/5ppp/8/8/8/6P1/1Q4K1/R7 w}
+  %7     
+  \page{7k/8/6KN/B7/8/8/8/8 w} 
+       {4k3/7R/3KN3/8/8/8/8/q7 w}
+       {R7/8/8/8/8/5K2/7p/6k1 w}
+       {5qk1/Q7/6K1/8/8/8/8/8 w}
+       {8/kppN4/8/8/8/1P6/1KP5/2R5 w}
+       {5rk1/5p2/5Bp1/8/8/8/6K1/7R w}       
+  %13
+  \page{2r5/2p5/kpB5/8/2R5/1K6/8/8 w}
+       {k1b5/p2R4/1pN5/8/8/1K6/8/8 w}
+       {kr6/7Q/1P6/8/2K5/8/8/8 w}
+       {Q7/8/5pkp/8/8/4rqPK/8/8 w}
+       {8/7K/Q7/4q3/8/7p/7p/7k w}
+       {krr5/pp6/8/8/N7/1K6/8/R7 w}       
+  %19
+  \page{8/8/8/8/p7/kn6/8/NK6 w}
+       {4k3/1N1nn3/4N2K/8/8/8/8/8 w}
+       {Krk5/p7/pP6/8/8/8/8/8 w}
+       {5b1r/6kp/8/6KP/8/8/B7/8 w}
+       {kb6/8/1K6/8/8/7B/8/8 w}
+       {6bk/p6p/5b2/8/8/1P6/P1P4P/B6K w}
+  %25
+  \page{8/1K6/7B/2k5/2Pp4/3P4/8/q7 w}
+       {3R4/5pkp/5Np1/6P1/8/8/6K1/8 w}
+       {8/8/8/8/8/8/5K1p/5N1k w}
+       {5rk1/5N1p/6p1/8/8/8/6K1/B7 w}
+       {7Q/8/8/8/4q3/3k4/1K2p3/8 w}
+       {5n1k/6Rp/6p1/4B3/8/8/6K1/8 w}       
+\end{center}
+\end{document}
+
+
+       
+
