@@ -1,0 +1,82 @@
+% -*- mode: Latex;-*-
+\documentclass[12pt]{article}
+\usepackage[top=0.0cm, left=1.3cm, bottom=1.2cm, right=1.5cm, a4paper, includehead, headsep=5mm]{geometry}
+% \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{skak}
+\usepackage{amssymb}
+\usepackage{xstring}
+
+% программа для редактирования позиций (очень удобная)
+% http://alain.blaisot.free.fr/DiagTransfer/English/home.htm
+% Страница для редактирования позиций на доске
+% http://chess.com/analysis-board-editor
+
+% Коды фигур
+% K - король 
+% Q - ферзь
+% R - ладья
+% B - слон
+% N - конь
+% P - пешка
+
+\newcounter{boardcount}
+\stepcounter{boardcount}
+
+\newcommand{\board}[1]
+{
+  \StrCut{#1}{ }{\position}{\turn}
+  \def\black{b}
+  \begin{minipage}[t][8.3cm][t]{8.0cm}
+    \fenboard{#1 - - 0 1}
+    \makebox[6ex]{\raisebox{35ex}{\Large\textbf{\theboardcount\LARGE{$\blacktriangleright$}}}} \hskip 0.2cm
+    \showboard
+    \par
+    \hskip 3.5cm
+    \ifx \black\turn Ход черных \else  Ход белых \fi
+  \end{minipage}
+  \stepcounter{boardcount}
+}
+
+\newcommand{\pagetitle}{{\Large\bf{Мат в 2 хода}}\vskip 0.6cm}
+
+\newcommand{\page}[6]
+{
+  \pagetitle
+  \begin{tabular}{cc}
+    \board{#1}  &
+                  \board{#2} \\
+    \board{#3}  &
+                  \board{#4} \\
+    \board{#5}  &
+                  \board{#6} \\
+  \end{tabular}
+  \newpage
+}
+
+\setupboard{22pt}{12pt}
+
+\begin{document}
+\begin{center}
+  \Large\bf
+  ПЕРВЫЙ КЛАСС
+
+  (Дети 6-летнего возраста)
+\end{center}
+\begin{center}
+  % 7 - номер первой доски на листе
+  \page{3qnrnk/5p2/3p1b1B/p2P1B2/1r2Pp2/2N4R/1PP3PP/R6K w}
+  {r1b1kb1r/p1qn1pp1/2N1pn1p/2p5/1P6/3R4/P1P1Qppp/R1B1K1NR w}
+  {1br1r1k1/p2q1ppp/1p6/4p3/1PPp1n1n/P2P2NP/1B1Q1P1K/3R2NR b}       
+  {8/1k3pp1/1p5p/2p2b1q/2P2Pn1/1P5P/1P2N1P1/Q5BK b}
+  {2kr1b1r/pp3ppp/2p1B2Q/4B3/4Q3/2PB2R1/PPP2PPP/3R2K1 w}
+  {4nrkn/r2q1p1p/3p2pQ/NppPpN1P/1P2P3/2P3P1/5P2/R3K2R w}       
+
+\end{center}
+\end{document}
+\page
+
+
+
+
